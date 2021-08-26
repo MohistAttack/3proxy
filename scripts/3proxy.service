@@ -5,6 +5,7 @@ After=network.target
 
 [Service]
 Environment=CONFIGFILE=/etc/3proxy/3proxy.cfg
+ExecStartPre=/bin/mkdir -p /var/run/3proxy
 ExecStart=/bin/3proxy ${CONFIGFILE}
 ExecReload=/bin/kill -SIGUSR1 $MAINPID
 KillMode=process
